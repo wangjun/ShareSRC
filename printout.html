@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title> ShareSRC - ソースコード共有サイト </title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" href="/f?file=index.css" />
+	</head>
+	<body>
+		<div id="body">
+			<div id="header">
+				<div id="menu">
+					<ul class="listmenu">
+						<li><a href="/about">ABOUT</a></li>
+						<li><a href="/view">RECENT</a></li>
+						<li style="width:260px;border:none;text-align:right">ソースコード共有サイト</li>
+					</ul>
+				</div>
+				<div id="logo">
+					<h1><a href="/"><span style="color:skyBlue;">Share</span><span style="color:#000;">SRC</span></a></h1>
+				</div>
+			</div>
+			<div id="main">
+				<div id="stitle">
+					<span style="margin-right:750px;">{{ title }}</span>
+					<span><a href="{{ fork_link }}">fork</a></span>
+				</div>
+				<div id="code">
+					<pre style="text-align:left;">{{ src }}</pre>
+				</div>
+			</div>
+			<div id="footer">
+				<p>Copyright Alice Allrights Reserced. Sinse 2011/xx/xx</p>
+			</div>
+		</div>
+	</body>
+</html>
