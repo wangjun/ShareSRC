@@ -22,11 +22,12 @@
 			</div>
 			<div id="main">
 				<div id="stitle">
-					<span style="margin-right:750px;">{{ title }}</span>
+					<span style="margin-right:415px;margin-left:20px;">{{ title }} : {{ token }}</span>
 					<span><a href="{{ fork_link }}">fork</a></span>
 				</div>
 				<div id="code">
-					<pre class="prettyprint" style="border:none;">{{ src }}</pre>
+					<div align="right" style="font-size:13px">{{ forked }}</div>
+					<pre class="prettyprint" style="border:none;padding:0px;margin:0px;font-size:16px;">{{ src }}</pre>
 				</div>
 			</div>
 			<div id="footer">
