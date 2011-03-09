@@ -3,8 +3,10 @@
 		<title> ShareSRC - ソースコード共有サイト </title>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link rel="stylesheet" href="/f?file=index.css" />
+		<link href="/f?file=src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/f?file=src/prettify.js"></script>
 	</head>
-	<body>
+	<body onload="prettyPrint()">
 		<div id="body">
 			<div id="header">
 				<div id="menu">
@@ -24,7 +26,7 @@
 					<span><a href="{{ fork_link }}">fork</a></span>
 				</div>
 				<div id="code">
-					<pre style="text-align:left;">{{ src }}</pre>
+					<pre class="prettyprint" style="border:none;">{{ src }}</pre>
 				</div>
 			</div>
 			<div id="footer">

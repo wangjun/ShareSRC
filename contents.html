@@ -3,26 +3,11 @@
 		<title> ShareSRC - ソースコード共有サイト </title>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link rel="stylesheet" href="/f?file=index.css" />
-		<link type="text/css" rel="stylesheet" href="/f?file=SyntaxHighlighter.css"></link>
-		<script type="text/javascript" src="/f?file=shBrushCSharp.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushCpp.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushCss.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushDelphi.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushJScript.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushJava.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushPhp.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushPython.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushRuby.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushSql.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushVb.js"></script>
-		<script type="text/javascript" src="/f?file=shBrushXml.js"></script>
-		<script type="text/javascript" src="/f?file=shCore.js"></script>
-		<script language="javascript">
-		dp.SyntaxHighlighter.ClipboardSwf = '/f?file=clipboard.swf';
-		dp.SyntaxHighlighter.HighlightAll('code');
-		</script>
+		<link href="/f?file=src/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="/f?file=src/prettify.js"></script>
+
 	</head>
-	<body>
+	<body onload="prettyPrint()">
 		<div id="body" style="height:auto;">
 			<div id="header">
 				<div id="menu">
