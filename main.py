@@ -116,7 +116,7 @@ class ViewHandler(webapp.RequestHandler):
 			contents = """<div id="stitle" style="float:left;"><a href="%s">%s</a></div>
 					<div align="right" style="float:right;margin-top:15px;"><a href="%s">forkする</a></div>
 					<div id="code" style="height:auto;text-align:left;clear:both;">
-						<pre class="prettyprint" style="border:none;padding:0px;margin:0px;">%s</pre>
+						<pre class="prettyprint" style="border:none;padding:0px;margin:0px;font-size:16px;">%s</pre>
 					</div>""" % ('/print?t=%s'%data.TOKEN.encode('utf-8'), data.TITLE.encode('utf-8'), '/?fork=%s'%data.TOKEN.encode('utf-8'), cont.encode('utf-8'))
 			items["contents"] += contents
 		
