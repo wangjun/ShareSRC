@@ -111,12 +111,12 @@ class ViewHandler(webapp.RequestHandler):
 			i = 1
 			cont = ""
 			for c in data.SRC.split("\n"):
-				cont += "<span style='color:#000; border-right:1px solid #000;'>%s</span> %s" % (str(i).ljust(4),c)
+				cont += "<span style='background:#aaa;border-right:1px solid #000;padding:0px;padding-left:7px;'>%s</span> %s" % (str(i).ljust(4),c)
 				i += 1
 			contents = """<div id="stitle" style="float:left;"><a href="%s">%s</a></div>
 					<div align="right" style="float:right;margin-top:15px;"><a href="%s">forkする</a></div>
 					<div id="code" style="height:auto;text-align:left;clear:both;">
-						<pre class="prettyprint" style="border:none;">%s</pre>
+						<pre class="prettyprint" style="border:none;padding:0px;margin:0px;">%s</pre>
 					</div>""" % ('/print?t=%s'%data.TOKEN.encode('utf-8'), data.TITLE.encode('utf-8'), '/?fork=%s'%data.TOKEN.encode('utf-8'), cont.encode('utf-8'))
 			items["contents"] += contents
 		
