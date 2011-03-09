@@ -91,7 +91,7 @@ class PrintHandler(webapp.RequestHandler):
 				items["src"] = ""
 				i = 1
 				for c in data.SRC.split("\n"):
-					items["src"] += "%s| %s" % (str(i).ljust(3),c)
+					items["src"] += "<span style='background:#aaa;border-right:1px solid #000;padding:0px;padding-left:7px;'>%s</span> %s" % (str(i).ljust(3),c)
 					i += 1
 				items["fork_link"] = "/?fork=%s" % data.TOKEN
 				
@@ -130,13 +130,18 @@ class SupportFile(webapp.RequestHandler):
 		file = self.request.get("file")
 		self.response.out.write(open(file,"r").read())
 		
+class About(webapp.RequestHandler):
+	def get(self):
+		self.redirect("http://sharesrc.appspot.com/print?t=x4jtk4hcaq6j3t34bradpe72jaf1yh")
+		
 def main():
 	application = webapp.WSGIApplication([
 							('/', MainHandler),
 							('/f',SupportFile),
 							('/registory',RegistoryHandler),
 							('/print',PrintHandler),
-							('/view',ViewHandler)],debug=True)
+							('/view',ViewHandler),
+							('/about',About)],debug=True)
 	util.run_wsgi_app(application)
 	
 if __name__ == '__main__':
