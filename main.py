@@ -88,7 +88,11 @@ class PrintHandler(webapp.RequestHandler):
 			datatoken = data.TOKEN
 			if datatoken == token:
 				items["title"] = data.TITLE
-				items["src"] = data.SRC
+				items["src"] = ""
+				i = 1
+				for c in data.SRC.split("\n"):
+					items["src"] += "%s| %s" % (str(i).ljust(3),c)
+					i += 1
 				items["fork_link"] = "/?fork=%s" % data.TOKEN
 				
 				
@@ -102,29 +106,22 @@ class ViewHandler(webapp.RequestHandler):
 		items = {"contents":""}
 		
 		regist = db.GqlQuery("SELECT * FROM Codes")
+		
 		for data in regist:
+			i = 1
+			cont = ""
+			for c in data.SRC.split("\n"):
+				cont += "<span style='color:#000; border-right:1px solid #000;'>%s</span> %s" % (str(i).ljust(4),c)
+				i += 1
 			contents = """<div id="stitle" style="float:left;"><a href="%s">%s</a></div>
 					<div align="right" style="float:right;margin-top:15px;"><a href="%s">forkする</a></div>
 					<div id="code" style="height:auto;text-align:left;clear:both;">
-						<pre style="text-align:left;" name="code" class="%s">%s</pre>
-					</div>""" % ('/print?t=%s'%data.TOKEN.encode('utf-8'), data.TITLE.encode('utf-8'), '/?fork=%s'%data.TOKEN.encode('utf-8'), self.getlang(data.SRC.encode('utf-8')), data.SRC.encode('utf-8'))
+						<pre class="prettyprint" style="border:none;">%s</pre>
+					</div>""" % ('/print?t=%s'%data.TOKEN.encode('utf-8'), data.TITLE.encode('utf-8'), '/?fork=%s'%data.TOKEN.encode('utf-8'), cont.encode('utf-8'))
 			items["contents"] += contents
 		
 		path = os.path.join(os.path.dirname(__file__),'contents.html')
 		self.response.out.write(template.render(path,items))
-		
-	def getlang(self,text):
-		setting = {"C++":"cpp","Cs":"c-charp","css":"css","delphi":"delphi","java":"java","javascript":"js","php":"php","python":"py",
-				"ruby":"rb","sql":"sql","vb":"vb","html":"html","xml":"xml"}
-		for lang in setting.keys():
-			if lang in text:
-				result =  setting[lang]
-				break
-			else: result = False
-			
-		if result == False:
-			return "text"
-		else: return result
 		
 #CSS
 class SupportFile(webapp.RequestHandler):
