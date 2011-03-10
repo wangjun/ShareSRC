@@ -3,36 +3,52 @@
 		<title> ShareSRC - ソースコード共有サイト </title>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<link rel="stylesheet" href="/f?file=index.css" />
+		<link href='http://fonts.googleapis.com/css?family=Coda+Caption:800' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<div id="body">
+		<div id="main">
+			<div id="menu">
+				<ul class="listmenu">
+					<li><a href="/recent">Recent</a></li>
+					<li><a href="/about">About</a></li>
+					<li style="width:178px;border-left:none;font-family:'monaco'">Sharing Source!</li>
+				</ul>
+			</div>
+			
 			<div id="header">
-				<div id="menu">
-					<ul class="listmenu">
-						<li><a href="/about">ABOUT</a></li>
-						<li><a href="/view">RECENT</a></li>
-						<li style="width:260px;border:none;text-align:right">ソースコード共有サイト</li>
-					</ul>
-				</div>
-				<div id="logo">
-					<h1><a href="/"><span style="color:skyBlue;">Share</span><span style="color:#000;">SRC</span></a></h1>
-				</div>
+				<h1>
+					<a href="/"><span style="color:skyBlue;">Share</span> SRC</a>
+				</h1>
 			</div>
-			<div id="main">
-				{{ fork }}
-				<form action="/registory" method="post">
-					<p><label for="title">タイトル</label><br><input type="text" name="title" id="title" value="{{ title_value }}" /></p>
-					<p><label for="code">コード</label><br>
-					<textarea name="src" id="code">{{ src_value }}</textarea>
-					</p>
-					<br />
-					<input type="hidden" name="token" value="{{ token }}" />
-					<input type="submit" value="送信" class="submit"/>
-				</form>
+			
+			<form action="/registory" method="post">
+			<table>
+				<tr>
+					<td><p><label for="title">title</label></p></td>
+					<td>
+						<input type="text" name="title" id="title" class="title" value="{{ title_value}}" />
+					</td>
+				</tr>
+				<tr>
+					<td><p><label for="code">SRC</label></p></td>
+					<td><textarea name="src" id="code" class="src">{{ src_value }}</textarea></td>
+				</tr>
+				<tr>
+					<td style="width:auto;text-align:center;" colspan="2">
+						<input type="hidden" name="token" value="{{ token }}" />
+						<input type="hidden" name="forked" value="{{ forked }}" />
+						<input type="submit" value="Sharing!" class="submit" />
+					</td>
+				</tr>
+			</table>
+			</form>
+			
+			
+			
+			<div id="copyright">
+				<p>Copyright Alice_Himmel All Rights Reserved.</p>
 			</div>
-			<div id="footer">
-				<p>Copyright Alice Allrights Reserced. Sinse 2011/xx/xx</p>
-			</div>
+			
 		</div>
 	</body>
 </html>
