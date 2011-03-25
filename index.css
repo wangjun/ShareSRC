@@ -78,7 +78,7 @@ a:hover{
 #main .title {
 	background: url('') repeat;
 	font-size:20px;
-	width:500px;
+	width:650px;
 	color:#fff;
 	border:none;
 	border-bottom:1px solid #fff;
@@ -90,8 +90,8 @@ a:hover{
 
 #main .src {
 	background: url('') repeat;
-	width:500px;
-	height:200px;
+	width:650px;
+	height:300px;
 	font-size:16px;
 	color:#fff;
 	padding:5px;
